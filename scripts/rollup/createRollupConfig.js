@@ -16,7 +16,7 @@ export function createRollupConfig(options, callback) {
     output: {
       file: outputName,
       format: options.format,
-      name: 'ReactHookForm',
+      name: 'ReactCrispyContext',
       sourcemap: true,
       globals: { react: 'React' },
       exports: 'named',
