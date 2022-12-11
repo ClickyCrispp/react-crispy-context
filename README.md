@@ -49,7 +49,9 @@ function Content() {
   );
 }
 
-function Content() {
+// You can also access / update state with the individual hooks,
+// useStoreUpdater doesn't cause re-renders where it is defined, only useStoreState does
+function ContentV2() {
   const count = useStoreState('count');
   const setCount = useStoreUpdater('count');
 
