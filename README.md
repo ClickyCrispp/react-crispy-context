@@ -1,11 +1,5 @@
 # React Crispy Context
 
-<div align="center">
-[![npm downloads](https://img.shields.io/npm/dm/react-crispy-context.svg?style=for-the-badge)](https://www.npmjs.com/package/react-crispy-context)
-[![npm](https://img.shields.io/npm/dt/react-crispy-context.svg?style=for-the-badge)](https://www.npmjs.com/package/react-crispy-context)
-[![npm](https://img.shields.io/npm/l/react-crispy-context?style=for-the-badge)](https://www.npmjs.com/package/react-crispy-context)
-</div>
-
 I created this libary to fix some issues with Reacts Context api, this solution effectively adds selectors to the state, so you can subscribe to individual slices of a larger state object.
 
 Best Practices: 
@@ -67,11 +61,6 @@ function Content() {
   );
 }
 ```
-<div align="center">
-
-
-
-</div>
 
 This package also allows you to use dot notation to specify the path to the piece of state you want to access. With full typescript support. Just make sure your key has a default value before you try to access/update it (avoid using Partial on the Store type)
 
