@@ -38,9 +38,11 @@ export function createRollupConfig(options, callback) {
           output: { comments: false },
           compress: {
             drop_console: true,
+            dead_code: true,
           },
         }),
     ].filter(Boolean),
+    treeshake: true // try this out
   };
 
   return callback ? callback(config) : config;

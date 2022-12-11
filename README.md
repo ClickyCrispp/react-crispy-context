@@ -1,6 +1,35 @@
-To use this package, import the `createReactCrispyContext` function and use it to create a new context object. You can then pass the initial state for your application as an argument to this function.
+# React Crispy Context
 
-```
+<div align="center">
+[![npm downloads](https://img.shields.io/npm/dm/react-crispy-context.svg?style=for-the-badge)](https://www.npmjs.com/package/react-crispy-context)
+[![npm](https://img.shields.io/npm/dt/react-crispy-context.svg?style=for-the-badge)](https://www.npmjs.com/package/react-crispy-context)
+[![npm](https://img.shields.io/npm/l/react-crispy-context?style=for-the-badge)]()
+
+
+</div>
+
+I created this libary to fix some issues with Reacts Context api, this solution effectively adds selectors to the state, so you can subscribe to individual slices of a larger state object.
+
+Best Practices: 
+* Best used with Typescript, the dot notation, it was built with that in mind.
+* If you are setting an object/array to overwrite the existing data you should pass in a newly created object/array, since we use mutation. I may try to find a way to enforce/improve this somehow in future versions.
+* This package is meant to improve the uses of the react context api, and not replace useState/useReducer.
+* Do not use a partial type
+* Define your initial value, with your object shape, so accessing nested fields works as expected
+
+### Features
+
+- Built with performance, UX and DX in mind
+- Uses the pub/sub pattern
+- Uses dot notation to efficiently subsribe to any level of depth of your state
+
+### Install
+
+    npm install react-crispy-context
+
+### Quickstart
+
+```tsx
 import { createReactCrispyContext } from 'react-crispy-context';
 
 const initialState = {
@@ -8,11 +37,7 @@ const initialState = {
 };
 
 const { Provider, useStore, useStoreState, useStoreUpdater } = createReactCrispyContext(initialState);
-```
 
-Once you have created your context object, you can use the `Provider` component to wrap your React app. This will make the global state available to any components within the app.
-
-```
 function App() {
   return (
     <Provider>
@@ -20,10 +45,7 @@ function App() {
     </Provider>
   );
 }
-```
 
-To access the global state within a component, use the useStore hook. This hook takes a selector argument that specifies the path to the piece of state you want to access. The hook returns an array containing the current value of the specified state and a function for updating it.
-```
 function Content() {
   const [count, setCount] = useStore('count');
 
@@ -35,7 +57,6 @@ function Content() {
   );
 }
 
-// or you could do this to isolate the stateUpdate hook, from the state value hook 
 function Content() {
   const count = useStoreState('count');
   const setCount = useStoreUpdater('count');
@@ -48,11 +69,15 @@ function Content() {
   );
 }
 ```
+<div align="center">
 
+
+
+</div>
 
 This package also allows you to use dot notation to specify the path to the piece of state you want to access. With full typescript support. Just make sure your key has a default value before you try to access/update it (avoid using Partial on the Store type)
 
-```
+```tsx
 const initialState = {
   user: {
     name: 'John Doe',
@@ -67,10 +92,4 @@ const initialState = {
 const darkMode = useStoreState('user.preferences.darkMode');
 ```
 
-Dot notation works for all of the hooks that subscribe to state
-
-
-
-
-
-License: MIT
+Dot notation works for all of the hooks that read or update state
