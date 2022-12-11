@@ -3,9 +3,7 @@
 <div align="center">
 [![npm downloads](https://img.shields.io/npm/dm/react-crispy-context.svg?style=for-the-badge)](https://www.npmjs.com/package/react-crispy-context)
 [![npm](https://img.shields.io/npm/dt/react-crispy-context.svg?style=for-the-badge)](https://www.npmjs.com/package/react-crispy-context)
-[![npm](https://img.shields.io/npm/l/react-crispy-context?style=for-the-badge)]()
-
-
+[![npm](https://img.shields.io/npm/l/react-crispy-context?style=for-the-badge)](https://www.npmjs.com/package/react-crispy-context)
 </div>
 
 I created this libary to fix some issues with Reacts Context api, this solution effectively adds selectors to the state, so you can subscribe to individual slices of a larger state object.
